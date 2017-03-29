@@ -1,0 +1,9 @@
+extends: airbnb/base
+parserOptions:
+  ecmaVersion: 6
+  sourceType: module
+rules:
+  class-methods-use-this: 0
+env:
+ jquery: true
+ browser: true

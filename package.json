@@ -1,0 +1,58 @@
+{
+  "name": "confetti",
+  "version": "1.0.0",
+  "description": "Confetti Javasciprt file",
+  "main": "Confetti.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/y-minami/confetti.git"
+  },
+  "keywords": [
+    "confetti",
+    "javascript"
+  ],
+  "author": "Yohei Minami",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/y-minami/confetti/issues"
+  },
+  "homepage": "https://github.com/y-minami/confetti#readme",
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "controlkit": "^0.1.9",
+    "jquery": "^3.1.1",
+    "underscore": "^1.8.3",
+    "velocity-animate": "^1.4.0"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.22.2",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-es2016": "^6.22.0",
+    "babel-register": "^6.24.0",
+    "browser-sync": "^2.18.6",
+    "eslint": "^3.14.0",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-loader": "^1.7.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-pleeease": "^2.0.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.2.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-strip-debug": "^1.1.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "gulp.spritesmith": "^6.3.0",
+    "webpack-stream": "^3.2.0"
+  }
+}
