@@ -12,7 +12,7 @@ import pleeease from 'gulp-pleeease';
 import pug from 'gulp-pug';
 import watch from 'gulp-watch';
 
-const buildPath = './webroot/';
+const buildPath = './docs/';
 
 const paths = {
   gulpFile: 'gulpfile.babel.js',
@@ -137,7 +137,7 @@ gulp.task('watch', () => {
 gulp.task('server', () => {
 
   browser.init({
-    server: "./webroot/",
+    server: "./docs/",
   });
 
   gulp.watch('./**/*.html', ['serverReload']);
@@ -151,7 +151,7 @@ gulp.task('serverReload', function() {
 
 gulp.task('serverNoWatch', function() {
   browser.init({
-    server: "./webroot/"
+    server: "./docs/"
   });
 });
 
