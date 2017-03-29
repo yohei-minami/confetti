@@ -137,7 +137,7 @@ gulp.task('watch', () => {
 gulp.task('server', () => {
 
   browser.init({
-    server: "./docs/",
+    server: buildPath,
   });
 
   gulp.watch('./**/*.html', ['serverReload']);
@@ -151,7 +151,7 @@ gulp.task('serverReload', function() {
 
 gulp.task('serverNoWatch', function() {
   browser.init({
-    server: "./docs/"
+    server: buildPath,
   });
 });
 

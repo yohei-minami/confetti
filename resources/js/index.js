@@ -1,7 +1,7 @@
 import 'babel-polyfill';
+import $ from 'jquery';
 import ControlKit from 'controlkit';
 import Vector2 from './Vector2';
-import $ from 'jquery';
 
 const sin = Math.sin;
 const cos = Math.cos;
@@ -10,8 +10,6 @@ const DEG_TO_RAD = PI / 180;
 
 class Learn {
   constructor() {
-    console.log('Learn');
-
     this.canvas = document.querySelector('.firstCanvas');
     this.context = this.canvas.getContext('2d');
     this.width = this.canvas.offsetWidth;
@@ -49,7 +47,7 @@ class Learn {
     this.sinTwist = sin(this.twistAngle);
     this.cosTwist = cos(this.twistAngle);
 
-    this.isFront = this.sinRotation > 0 === this.sinTwist > 0;
+    this.isFront = (this.sinRotation > 0) === (this.sinTwist > 0);
     this.isFront2 = this.sinRotation > 0;
 
     this.size = 200;
@@ -62,14 +60,14 @@ class Learn {
 
     this.controlKit.addPanel()
 
-      .addGroup({'label': 'MOVE'})
+      .addGroup({ label: 'MOVE' })
       .addCheckbox(this, 'move')
       .addCheckbox(this, 'guide')
       .addCheckbox(this, 'edge')
       .addCheckbox(this, 'skeleton')
       .addCheckbox(this, 'fill')
       .addCheckbox(this, 'postimage')
-      .addButton('2 views', ()=> {
+      .addButton('2 views', () => {
         this.multiView = !this.multiView;
         if (this.multiView) {
           $('body').addClass('multiView');
@@ -78,22 +76,22 @@ class Learn {
         }
       })
 
-      .addGroup({'label': 'COLORS'})
-      .addColor(this, 'frontColor', {colorMode: 'hex'})
-      .addColor(this, 'backColor', {colorMode: 'hex'})
+      .addGroup({ label: 'COLORS' })
+      .addColor(this, 'frontColor', { colorMode: 'hex' })
+      .addColor(this, 'backColor', { colorMode: 'hex' })
 
-      .addGroup({'label': 'ANGLES'})
+      .addGroup({ label: 'ANGLES' })
       .addSlider(this, 'squareAngle', 'angleRange')
       .addSlider(this, 'rotationAngle', 'angleRange')
       .addSlider(this, 'twistAngle', 'angleRange')
 
-      .addGroup({'label': 'SPEEDS'})
+      .addGroup({ label: 'SPEEDS' })
       .addSlider(this, 'rotationSpeed', 'rotationSpeedRange')
       .addSlider(this, 'twistSpeed', 'twistSpeedRange')
 
-      .addGroup({'label': 'OUTPUT'})
+      .addGroup({ label: 'OUTPUT' })
       .addValuePlotter(this, 'sinRotation')
-      .addValuePlotter(this, 'sinTwist')
+      .addValuePlotter(this, 'sinTwist');
 
     this.start();
   }
@@ -106,8 +104,8 @@ class Learn {
 
   resize() {
     for (let i = 0; i < 4; i += 1) {
-      const dx = cos((DEG_TO_RAD * (i * 90 + 45)) + DEG_TO_RAD * this.squareAngle);
-      const dy = sin((DEG_TO_RAD * (i * 90 + 45)) + DEG_TO_RAD * this.squareAngle);
+      const dx = cos((DEG_TO_RAD * ((i * 90) + 45)) + (DEG_TO_RAD * this.squareAngle));
+      const dy = sin((DEG_TO_RAD * ((i * 90) + 45)) + (DEG_TO_RAD * this.squareAngle));
       this.corners[i] = new Vector2(dx, dy);
       this.points[i] = new Vector2(dx, dy);
       this.points2[i] = new Vector2(dx, dy);
@@ -123,7 +121,6 @@ class Learn {
   }
 
   update() {
-
     this.resize();
 
     if (this.move) {
@@ -150,18 +147,17 @@ class Learn {
   }
 
   draw() {
-
-    this.isFront = this.cosRotation > 0 === this.cosTwist > 0;
+    this.isFront = (this.cosRotation > 0) === (this.cosTwist > 0);
     this.isFront2 = this.sinRotation > 0;
 
     this.context.globalAlpha = 1;
     this.context2.globalAlpha = 1;
 
     if (this.postimage) {
-      this.context.fillStyle = 'rgba(0, 0, 0, .1)';
+      this.context.fillStyle = 'rgba(0, 0, 0, .02)';
       this.context.rect(0, 0, this.canvas.width, this.canvas.height);
       this.context.fill();
-      this.context2.fillStyle = 'rgba(0, 0, 0, .03)';
+      this.context2.fillStyle = 'rgba(0, 0, 0, .02)';
       this.context2.rect(0, 0, this.canvas.width, this.canvas.height);
       this.context2.fill();
     } else {
@@ -248,7 +244,6 @@ class Learn {
     }
     this.context2.closePath();
     this.context2.stroke();
-
   }
 
   drawEdge() {
@@ -267,8 +262,6 @@ class Learn {
       ctx2.arc(this.points2[i].x, this.points2[i].y, 5, 0, PI * 2, false);
       ctx2.stroke();
     }
-
-
   }
 
   drawGuide2() {
